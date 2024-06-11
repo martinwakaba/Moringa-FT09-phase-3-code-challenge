@@ -163,5 +163,114 @@ def get_magazine(cursor):
         print(f"No article found with ID {article_id}.")
 
 
+
+
+def main():
+        # Initialize the database and create tables
+    create_tables()
+
+
+    while True:
+        print("\nChoose:")
+        print("1.  Create Author")
+        print("2.  Create Magazine")
+        print("3.  Create Article")
+        print("4.  Get All Authors")
+        print("5.  Get Author Articles")
+        print("6.  Get Author Magazines")
+        print("7.  Get All Magazines")
+        print("8.  Get Magazine Articles")
+        print("9.  Get Magazine Contributors")
+        print("11. Get Magazine Article Titles")
+        print("11. Get Magazine Contributing Authors")
+        print("12. Get Article title")
+        print("13. Get the name of the author of an article")
+        print("14. Get the magazine of an article")
+        print("15. Exit")
+
+        
+
+        choice = input("\nEnter A Number: ")
+
+        if choice == "1":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            create_author(cursor)
+            conn.commit()
+            conn.close()
+        elif choice == "2":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            create_magazine(cursor)
+            conn.commit()
+            conn.close()
+        elif choice == "3":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            create_article(cursor)
+            conn.commit()
+            conn.close()
+        elif choice == "4":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            get_all_authors(cursor)
+            conn.close()
+        elif choice == "5":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            get_author_articles(cursor)
+            conn.close()
+        elif choice == "6":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            get_author_magazines(cursor)
+            conn.close()
+        elif choice == "7":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            get_all_magazines(cursor)
+            conn.close()
+        elif choice == "8":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            get_magazine_articles(cursor)
+            conn.close()
+        elif choice == "9":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            get_magazine_contributors(cursor)
+            conn.close()
+        elif choice == "10":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            get_magazine_article_titles(cursor)
+            conn.close()
+        elif choice == "11":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            get_magazine_contributing_authors(cursor)
+            conn.close()
+        elif choice == "12":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            get_article_title(cursor)
+            conn.close()
+        elif choice == "13":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            get_article_author(cursor)
+            conn.close()
+        elif choice == "14":
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            get_magazine(cursor)
+            conn.close()
+        elif choice == "15":
+            print("Exiting...")
+            break
+        else:
+            print("Invalid option. Please enter a valid option.")
+
+
 if __name__ == "__main__":
     main()
